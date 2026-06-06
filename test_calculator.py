@@ -3,7 +3,7 @@
 Each function starting with `test_` is one check that pytest runs.
 """
 
-from calculator import add, subtract
+from calculator import add, subtract, multiply
 
 
 def test_add_positive_numbers():
@@ -16,3 +16,7 @@ def test_add_negative_numbers():
 
 def test_subtract():
     assert subtract(10, 4) == 6
+
+
+def test_multiply():
+    assert multiply(3, 4) == 12
