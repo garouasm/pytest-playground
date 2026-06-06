@@ -1,19 +1,19 @@
 from string_utils import is_palindrome, describe_number
 
 def test_normal_palindrome():
-    assert is_palindrome("ana") == True
+    assert is_palindrome("ana")
 
 def test_not_palindrome():
-    assert is_palindrome("casa") == False
+    assert not is_palindrome("casa")
 
 def test_empty_string():
-    assert is_palindrome("") == True
+    assert is_palindrome("")
 
 def test_single_character():
-    assert is_palindrome("a") == True
+    assert is_palindrome("a")
 
 def test_palindrome_with_capital():
-    assert is_palindrome("Ana") == True
+    assert is_palindrome("Ana")
 
 def test_positive_number():
     assert describe_number(5) == "positive"
