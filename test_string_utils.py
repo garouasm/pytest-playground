@@ -1,4 +1,5 @@
 from string_utils import is_palindrome, describe_number
+import pytest
 
 def test_normal_palindrome():
     assert is_palindrome("ana")
@@ -15,11 +16,13 @@ def test_single_character():
 def test_palindrome_with_capital():
     assert is_palindrome("Ana")
 
-def test_positive_number():
-    assert describe_number(5) == "positive"
+@pytest.mark.parametrize("input, expected", [
+    (5, "positive"),
+    (-3, "negative"),
+    (0, "zero"),
+    (1, "positive"),
+    (-1, "negative"),
+])
 
-def test_negative_number():
-    assert describe_number(-3) == "negative"
-
-def test_zero_number():
-    assert describe_number(0) == "zero"
+def test_describe_number(input, expected):
+    assert describe_number(input) == expected
