@@ -12,3 +12,6 @@ def describe_number(n: int) -> str:
     else:
         return "zero"
     
+def can_drive(has_license: bool, is_sober: bool) -> bool:
+    """Can drive only with a license AND being sober."""
+    return has_license and is_sober

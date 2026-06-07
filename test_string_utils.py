@@ -1,4 +1,4 @@
-from string_utils import is_palindrome, describe_number
+from string_utils import can_drive, is_palindrome, describe_number
 import pytest
 
 def test_normal_palindrome():
@@ -16,13 +16,20 @@ def test_single_character():
 def test_palindrome_with_capital():
     assert is_palindrome("Ana")
 
-@pytest.mark.parametrize("input, expected", [
+@pytest.mark.parametrize("number, expected", [
     (5, "positive"),
     (-3, "negative"),
     (0, "zero"),
     (1, "positive"),
     (-1, "negative"),
 ])
+def test_describe_number(number, expected):
+    assert describe_number(number) == expected
 
-def test_describe_number(input, expected):
-    assert describe_number(input) == expected
+@pytest.mark.parametrize("has_license, is_sober, expected", [
+    (True, True, True),
+    (True, False, False),
+    (False, True, False),
+])
+def test_can_drive(has_license, is_sober, expected):
+    assert can_drive(has_license, is_sober) == expected
